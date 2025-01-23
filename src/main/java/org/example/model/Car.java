@@ -1,71 +1,83 @@
 package org.example.model;
 
 public class Car {
-    private String CarName;
-    private String CarModel;
-    private int CarYear;
-    private String VinNumber;
-    private String CarColor;
-    private Long Id;
+    private String carName;
+    private String carModel;
+    private int carYear;
+    private String vinNumber;
+    private String carColor;
+    private Long id;
 
     public Car(Long id, String carModel, String carName, String carColor, int carYear, String vinNumber) {
     }
 
     public Car(String carName, String carModel, int carYear, String vinNumber, String carColor, int id) {
-        CarName = carName;
-        CarModel = carModel;
-        CarYear = carYear;
-        VinNumber = vinNumber;
-        CarColor = carColor;
-        Id = (long) id;
+        this.carName = carName;
+        this.carModel = carModel;
+        this.carYear = carYear;
+        this.vinNumber = vinNumber;
+        this.carColor = carColor;
+        this.id = (long) id;
 
     }
 
     public String getCarName() {
-        return CarName;
+        return carName;
     }
 
     public void setCarName(String carName) {
-        CarName = carName;
+        this.carName = carName;
     }
 
     public String getCarModel() {
-        return CarModel;
+        return carModel;
     }
 
     public void setCarModel(String carModel) {
-        CarModel = carModel;
+        this.carModel = carModel;
     }
 
     public int getCarYear() {
-        return CarYear;
+        return carYear;
     }
 
     public void setCarYear(int carYear) {
-        CarYear = carYear;
+        this.carYear = carYear;
     }
 
     public String getVinNumber() {
-        return VinNumber;
+        return vinNumber;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = (long) id;
+        this.id = (long) id;
     }
 
     public void setVinNumber(String vinNumber) {
-        VinNumber = vinNumber;
+        this.vinNumber = vinNumber;
     }
 
     public String getCarColor() {
-        return CarColor;
+        return carColor;
     }
 
     public void setCarColor(String carColor) {
-        CarColor = carColor;
+        this.carColor = carColor;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "CarName='" + carName + '\'' +
+                ", CarModel='" + carModel + '\'' +
+                ", CarYear=" + carYear +
+                ", VinNumber='" + vinNumber + '\'' +
+                ", CarColor='" + carColor + '\'' +
+                ", Id=" + id +
+                '}';
     }
 }
