@@ -1,4 +1,4 @@
-package model;
+package org.example.model;
 
 public class Car {
     private String CarName;
@@ -6,16 +6,19 @@ public class Car {
     private int CarYear;
     private String VinNumber;
     private String CarColor;
+    private Long Id;
 
-    public Car() {
+    public Car(Long id, String carModel, String carName, String carColor, int carYear, String vinNumber) {
     }
 
-    public Car(String carName, String carModel, int carYear, String vinNumber, String carColor) {
+    public Car(String carName, String carModel, int carYear, String vinNumber, String carColor, int id) {
         CarName = carName;
         CarModel = carModel;
         CarYear = carYear;
         VinNumber = vinNumber;
         CarColor = carColor;
+        Id = (long) id;
+
     }
 
     public String getCarName() {
@@ -44,6 +47,14 @@ public class Car {
 
     public String getVinNumber() {
         return VinNumber;
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = (long) id;
     }
 
     public void setVinNumber(String vinNumber) {
