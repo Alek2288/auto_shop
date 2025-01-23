@@ -13,4 +13,6 @@ public interface CarRepository {
 
     void deleteById(Long id);
 
+    Car findByVin(String vinNumber);
+
 }

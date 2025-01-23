@@ -8,16 +8,13 @@ public class Car {
     private String carColor;
     private Long id;
 
-    public Car(Long id, String carModel, String carName, String carColor, int carYear, String vinNumber) {
-    }
-
-    public Car(String carName, String carModel, int carYear, String vinNumber, String carColor, int id) {
+    public Car(Long id, String carName, String carModel, String vinNumber, int carYear, String carColor) {
         this.carName = carName;
         this.carModel = carModel;
         this.carYear = carYear;
         this.vinNumber = vinNumber;
         this.carColor = carColor;
-        this.id = (long) id;
+        this.id = id;
 
     }
 

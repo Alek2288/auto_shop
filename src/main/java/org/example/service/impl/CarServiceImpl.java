@@ -30,7 +30,7 @@ public class CarServiceImpl implements CarService {
         if (vinNumber.length() != 17) {
             throw new RuntimeException("Vin содержит 17 знаков");
         }
-        Car car = new Car(id, carModel, carName, vinNumber, carYear, carColor);
+        Car car = new Car(id, carName, carModel, vinNumber, carYear, carColor);
         return carRepository.save(car);
     }
 
@@ -51,6 +51,6 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car getByVin(String vinNumber) {
-        return null;
+        return carRepository.findByVin(vinNumber);
     }
 }

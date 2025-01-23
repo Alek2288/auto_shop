@@ -45,4 +45,14 @@ public class CarRepositoryImpl implements CarRepository {
             cars.remove(carForDelete);
         }
     }
+
+    @Override
+    public Car findByVin(String vinNumber) {
+        for (Car car : cars) {
+            if (car.getVinNumber().equals(vinNumber)) {
+                return car;
+            }
+        }
+        return null;
+    }
 }
