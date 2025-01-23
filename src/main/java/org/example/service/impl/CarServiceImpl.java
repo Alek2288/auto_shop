@@ -13,7 +13,7 @@ public class CarServiceImpl implements CarService {
     private final CarRepository carRepository = new CarRepositoryImpl();
 
     @Override
-    public Car create(String carModel, String carName, String carColor, int carYear, String vinNumber) {
+    public Car create(String carModel, String carName, String vinNumber, int carYear, String carColor) {
         Long id = AutoIncrement.getId();
         if (carName.isEmpty()) {
             throw new RuntimeException("Марка машины не может быть пустой");
@@ -30,7 +30,7 @@ public class CarServiceImpl implements CarService {
         if (vinNumber.length() != 17) {
             throw new RuntimeException("Vin содержит 17 знаков");
         }
-        Car car = new Car(id, carModel, carName, carColor, carYear, vinNumber);
+        Car car = new Car(id, carModel, carName, vinNumber, carYear, carColor);
         return carRepository.save(car);
     }
 

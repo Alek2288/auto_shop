@@ -46,7 +46,7 @@ public class ConsoleInterface {
                 System.out.println("Введите цвет авто");
                 String carColor = scanner.nextLine();
                 Car car = carService.create(carName, carModel, vinNumber, carYear, carColor);
-                System.out.println("Авто успешно создан" + car);
+                System.out.println("Авто успешно создан" + toString(car));
             }
             case 2 -> {
                 System.out.println("Введите vin авто, которое хотите найти");
@@ -87,5 +87,9 @@ public class ConsoleInterface {
             }
             case 6 -> System.exit(1);
         }
+    }
+
+    private String toString(Car car) {
+        return car.toString();
     }
 }
