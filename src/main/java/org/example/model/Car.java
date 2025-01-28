@@ -1,7 +1,7 @@
 package org.example.model;
 
 public class Car {
-    Long id;
+    private Long id;
     private String carName;
     private String carModel;
     private int carYear;
