@@ -1,7 +1,7 @@
 package org.example.model;
 
 public class Car {
-    long id;
+    Long id;
     private String carName;
     private String carModel;
     private int carYear;
@@ -9,7 +9,7 @@ public class Car {
     private String carColor;
 
 
-    public Car(long id, String carName, String carModel, String vinNumber, int carYear, String carColor) {
+    public Car(Long id, String carName, String carModel, String vinNumber, int carYear, String carColor) {
         this.carName = carName;
         this.carModel = carModel;
         this.carYear = carYear;
