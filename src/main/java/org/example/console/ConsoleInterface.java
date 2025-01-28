@@ -3,8 +3,8 @@ package org.example.console;
 import org.example.model.Car;
 import org.example.service.CarService;
 import org.example.service.impl.CarServiceImpl;
-import org.example.utils.AutoIncrement;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ public class ConsoleInterface {
 
     private final CarService carService = new CarServiceImpl();
 
-    public void applicationStarter () {
+    public void applicationStarter () throws SQLException, ClassNotFoundException {
         while (true) {
             userMenu();
             int userChoice = scanner.nextInt();
@@ -30,7 +30,7 @@ public class ConsoleInterface {
         System.out.println("5. Удалить авто по id");
         System.out.println("6. Выйти из приложения");
     }
-    private void handle(int userChoice) {
+    private void handle(int userChoice) throws SQLException, ClassNotFoundException {
         switch (userChoice) {
             case 1 -> {
                 scanner.nextLine();
@@ -45,11 +45,11 @@ public class ConsoleInterface {
                 scanner.nextLine();
                 System.out.println("Введите цвет авто");
                 String carColor = scanner.nextLine();
-                Car car = carService.create(carName, carModel, vinNumber, carYear, carColor);
-                System.out.println("Авто успешно создан" + toString(car));
+                carService.create(carName, carModel, vinNumber, carYear, carColor);
             }
             case 2 -> {
                 System.out.println("Введите vin авто, которое хотите найти");
+                scanner.nextLine();
                 String vin = scanner.nextLine();
                 Car car = carService.getByVin(vin);
                 if (car != null) {

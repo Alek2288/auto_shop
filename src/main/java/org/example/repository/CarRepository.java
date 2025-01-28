@@ -2,17 +2,18 @@ package org.example.repository;
 
 import org.example.model.Car;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface CarRepository {
-    Car save(Car car);
+    void save(Car car) throws SQLException, ClassNotFoundException;
 
-    Car findById(Long id);
+    Car findById(Long id) throws ClassNotFoundException, SQLException;
 
-    List<Car> findAll();
+    List<Car> findAll() throws ClassNotFoundException, SQLException;
 
-    void deleteById(Long id);
+    void deleteById(Long id) throws ClassNotFoundException, SQLException;
 
-    Car findByVin(String vinNumber);
+    Car findByVin(String vinNumber) throws ClassNotFoundException, SQLException;
 
 }

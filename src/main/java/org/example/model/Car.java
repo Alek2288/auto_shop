@@ -1,20 +1,33 @@
 package org.example.model;
 
 public class Car {
+    long id;
     private String carName;
     private String carModel;
     private int carYear;
     private String vinNumber;
     private String carColor;
-    private Long id;
 
-    public Car(Long id, String carName, String carModel, String vinNumber, int carYear, String carColor) {
+
+    public Car(long id, String carName, String carModel, String vinNumber, int carYear, String carColor) {
         this.carName = carName;
         this.carModel = carModel;
         this.carYear = carYear;
         this.vinNumber = vinNumber;
         this.carColor = carColor;
         this.id = id;
+
+    }
+
+    public Car(String carName, String carModel, String vinNumber, int carYear, String carColor) {
+        this.carName = carName;
+        this.carModel = carModel;
+        this.carYear = carYear;
+        this.vinNumber = vinNumber;
+        this.carColor = carColor;
+    }
+
+    public Car(){
 
     }
 
@@ -76,5 +89,9 @@ public class Car {
                 ", CarColor='" + carColor + '\'' +
                 ", Id=" + id +
                 '}';
+    }
+
+    public void setId(Long idFromDB) {
+        this.id = idFromDB;
     }
 }
