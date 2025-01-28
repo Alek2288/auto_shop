@@ -2,19 +2,18 @@ package org.example.service.impl;
 
 import org.example.model.Car;
 import org.example.repository.CarRepository;
-import org.example.repository.impl.CarRepositoryImpl;
+import org.example.repository.db.impl.CarDBRepositoryImpl;
 import org.example.service.CarService;
-import org.example.utils.AutoIncrement;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class CarServiceImpl implements CarService {
 
-    private final CarRepository carRepository = new CarRepositoryImpl();
+    private final CarRepository carRepository = new CarDBRepositoryImpl();
 
     @Override
-    public Car create(String carModel, String carName, String vinNumber, int carYear, String carColor) {
-        Long id = AutoIncrement.getId();
+    public void create(String carName, String carModel, String vinNumber, int carYear, String carColor) throws SQLException, ClassNotFoundException {
         if (carName.isEmpty()) {
             throw new RuntimeException("Марка машины не может быть пустой");
         }
@@ -30,27 +29,27 @@ public class CarServiceImpl implements CarService {
         if (vinNumber.length() != 17) {
             throw new RuntimeException("Vin содержит 17 знаков");
         }
-        Car car = new Car(id, carName, carModel, vinNumber, carYear, carColor);
-        return carRepository.save(car);
+        Car car = new Car(carName, carModel, vinNumber, carYear, carColor);
+        carRepository.save(car);
     }
 
     @Override
-    public Car getById(Long id) {
+    public Car getById(Long id) throws SQLException, ClassNotFoundException {
         return carRepository.findById(id);
     }
 
     @Override
-    public List<Car> getAll() {
+    public List<Car> getAll() throws SQLException, ClassNotFoundException {
         return carRepository.findAll();
     }
 
     @Override
-    public void removeById(Long id) {
+    public void removeById(Long id) throws SQLException, ClassNotFoundException {
         carRepository.deleteById(id);
     }
 
     @Override
-    public Car getByVin(String vinNumber) {
+    public Car getByVin(String vinNumber) throws SQLException, ClassNotFoundException {
         return carRepository.findByVin(vinNumber);
     }
 }

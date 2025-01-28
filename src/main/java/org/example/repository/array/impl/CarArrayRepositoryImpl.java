@@ -1,20 +1,18 @@
-package org.example.repository.impl;
+package org.example.repository.array.impl;
 
 import org.example.model.Car;
 import org.example.repository.CarRepository;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-public class CarRepositoryImpl implements CarRepository {
+public class CarArrayRepositoryImpl implements CarRepository {
 
 
     private final List<Car> cars = new ArrayList<>();
     @Override
-    public Car save(Car car) {
+    public void save(Car car) {
         cars.add(car);
-        return car;
     }
 
     @Override
